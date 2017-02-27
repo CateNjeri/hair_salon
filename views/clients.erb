@@ -1,0 +1,17 @@
+<h1> Manage Your Clients</h1><br>
+
+<h3> Click on a client to see more details</h3><br>
+
+<% if @clients.any?() %>
+<ul>
+  <% @clients.each do |client| %>
+  <li><a href='/clients/<%= client.id() %>'><%= client.name() %></a></li><br>
+  <% end %>
+</ul>
+<% else %>
+<h2> You don't have any clients yet!</h2>
+<% end %>
+
+<button type="button" class="btn btn-large"><a href='/clients/new'>Add a New Client</a></button>
+
+<button type="button" class="btn btn-large"><a href='/'>Back Home</a></button>

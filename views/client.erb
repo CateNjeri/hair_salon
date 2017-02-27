@@ -1,0 +1,22 @@
+<h1> Client Information <h1>
+
+<h3> Name: <%= @client.name() %> </h3>
+
+<h3> Phone: <%= @client.phone() %></h3>
+
+<h3> Email: <%= @client.email() %> </h3>
+
+<% if @client.stylist_id() != 0 %>
+<h3>Stylist: <%= Stylist.find_by_id(@client.stylist_id).name() %> </h3>
+<% else %>
+</h3> No Stylist Assigned Yet </h3>
+<% end %>
+<br><br>
+<button type='button' class="btn btn-large"><a id="edit_delete" href='/clients/<%= @client.id() %>/edit'>Edit Client Info</a></button>
+<br><br>
+<form action="/clients/<%= @client.id() %>/delete" method="post">
+  <input name="_method" type="hidden" value="delete">
+  <button type="submit" class="btn btn-large">Delete Client</button>
+</form>
+
+<br><button type='button' class="btn btn-large"><a href="/clients">Back to Manage Clients</a></button>

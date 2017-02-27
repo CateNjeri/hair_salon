@@ -1,0 +1,17 @@
+<h1> Manage Your Stylists</h1><br>
+
+<h3> Click on a stylist to see more details</h3><br>
+
+<% if @stylists.any?() %>
+<ul>
+  <% @stylists.each do |stylist| %>
+  <li><a href='/stylists/<%= stylist.id() %>'><%= stylist.name() %></a></li><br>
+  <% end %>
+</ul>
+<% else %>
+<h2> You don't have any stylists yet!</h2>
+<% end %>
+
+<button type='button' class="btn btn-large"><a href='/stylists/new'>Add a New Stylist</a></button>
+
+<button type='button' class="btn btn-large"><a href='/'>Back Home</a></button>

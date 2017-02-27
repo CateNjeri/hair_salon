@@ -1,0 +1,20 @@
+<h1>Assign <%= @client.name() %> to a Stylist </h1>
+
+<% if @stylists.any?() %>
+
+  <form action="/clients/<%= @client.id %>/assign" method="post">
+    <label for="stylist_id">Choose a Stylist:</label>
+    <select id="stylist_id" name="stylist_id" type="text">
+      <% @stylists.each() do |stylist| %>
+      <option value="<%= stylist.id() %>"><%= stylist.name %></option>
+      <% end %>
+    </select>
+
+    <button type="submit">Assign Stylist</button>
+  </form>
+
+<% else %>
+  <p> There are no stylists to assign to this client.</p>
+<% end %>
+
+<button type='button'><a href='/'>Back Home</a></button>

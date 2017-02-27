@@ -1,0 +1,28 @@
+<h1> Please enter the new client's info:</h1>
+
+<form action="/clients" method="post">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" name="name">
+  </div>
+  <div class="form-group">
+    <label for="phone">Phone:</label>
+    <input type="text" name="phone">
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" name="email">
+  </div>
+  
+  <label for="stylist_id">Choose a Stylist:</label>
+  <select id="stylist_id" name="stylist_id" type="text">
+    <% @stylists.each() do |stylist| %>
+    <option value="<%= stylist.id() %>"><%= stylist.name %></option>
+    <% end %>
+  </select>
+
+  <button type="submit">Add Client</button>
+</form>
+
+<br>
+<a href="/clients">Back to Manage Clients</a>
